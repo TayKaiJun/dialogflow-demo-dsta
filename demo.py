@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
+import flask
+app = flask.Flask(__name__)
 
-This is a temporary script file.
-"""
-
-print("hello world")
+@app.route("/")
+def index():
+    return "Hello Heruko"
