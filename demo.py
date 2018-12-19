@@ -28,14 +28,15 @@ def processRequest(req):
     
     emotion = parameters.get("Emotion")
     
+    output = "Hello, you're in Heroku! "
+    
     if action == "show_heroku_emotion":
-        correctOutput = "Hello, you're in Heroku and you're " + str(emotion)
-        return {
-            "fulfillmentText": correctOutput
-        }
+        output += emotion
     else:
-        return {
-            "fulfillmentText": "You failed"
-        }
+        output = "No action detected!"
+        
+    return {
+        "fulfillmentText": output
+    }
     
         
