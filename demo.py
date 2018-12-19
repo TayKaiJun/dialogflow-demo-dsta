@@ -20,6 +20,22 @@ def webhook():
     return r
 
 def processRequest(req):
-    return {
-        "fulfillmentText": "Hello, you're in Heroku",
-    }
+    
+    # taking data from dialogflow
+    result = req.get("queryResult")
+    parameters = result.get("parameters")
+    action = result.get('action')
+    
+    emotion = parameters.get("Emotion")
+    
+    if action == "show_heroku_emotion":
+        correctOutput = "Hello, you're in Heroku and you're " + str(emotion)
+        return {
+            "fulfillmentText": correctOutput
+        }
+    else:
+        return {
+            "fulfillmentText": "You failed"
+        }
+    
+        
