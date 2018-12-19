@@ -1,1 +1,1 @@
-hello: python demo.py
+web: gunicorn gettingstarted.wsgi --log-file -
